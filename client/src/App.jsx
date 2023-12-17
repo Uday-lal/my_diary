@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import AuthPage from "./pages/AuthPage.jsx";
 import "./styles/App.css";
 
 function App() {
@@ -8,7 +9,7 @@ function App() {
                 <Switch>
                     <Route exact path="/">
                         <div className="page">
-                            <h1>Home</h1>
+                            <AuthPage />
                         </div>
                     </Route>
                     <Route path="/test">

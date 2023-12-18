@@ -2,6 +2,7 @@ import React from "react";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import explore from "../assets/explore.svg";
+import LoginForm from "../Components/loginForm.jsx";
 import "../styles/Auth.css";
 
 function AuthPage(props) {
@@ -28,7 +29,15 @@ function AuthPage(props) {
                         </div>
                     </Box>
                 </Grid>
-                <Grid item xs={2}></Grid>
+                <Grid
+                    item
+                    xs={4}
+                    style={{
+                        padding: "20px",
+                    }}
+                >
+                    <LoginForm />
+                </Grid>
             </Grid>
         </>
     );

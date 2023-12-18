@@ -51,6 +51,18 @@ module.exports = {
                     },
                 ],
             },
+            {
+                test: /\.(png|jpg|gif)$/i,
+                use: [
+                    {
+                        loader: "url-loader",
+                        options: {
+                            limit: 10000,
+                            name: "images/[name].[ext]", // Output path for images
+                        },
+                    },
+                ],
+            },
         ],
     },
     optimization: {

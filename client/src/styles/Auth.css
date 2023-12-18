@@ -24,4 +24,35 @@
 .form_container {
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.form_header {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.form_header > img {
+    width: 50px;
+    height: 50px;
+}
+
+.form_container > form {
+    width: 100%;
+}
+
+.form_container > form > * {
+    width: 100%;
+}
+
+.form-field {
+    width: 100%;
+    margin: 10px 0px !important;
 }

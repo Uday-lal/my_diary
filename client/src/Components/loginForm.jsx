@@ -41,13 +41,37 @@ function LoginForm() {
                                 <Button
                                     className="form-field"
                                     variant="contained"
+                                    type="submit"
                                 >
-                                    Submit
+                                    Login
                                 </Button>
                             </FormControl>
                         </Grid>
                     </Grid>
                 </form>
+                <Box className="divider_container">
+                    <span className="line"></span>
+                    <span className="divider_text">or</span>
+                    <span className="line"></span>
+                </Box>
+                <Box
+                    style={{
+                        width: "100%",
+                    }}
+                >
+                    <Button
+                        className="form-field"
+                        variant="contained"
+                        LinkComponent="a"
+                        style={{
+                            borderRadius: "100px",
+                        }}
+                        href="/register"
+                        color="secondary"
+                    >
+                        Create Account
+                    </Button>
+                </Box>
             </Box>
         </>
     );

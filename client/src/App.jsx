@@ -8,6 +8,9 @@ const theme = createTheme({
         primary: {
             main: "#6C63FF",
         },
+        secondary: {
+            main: "#2F2E41",
+        },
     },
 });
 
@@ -19,7 +22,12 @@ function App() {
                     <Switch>
                         <Route exact path="/">
                             <div className="page">
-                                <AuthPage />
+                                <AuthPage isLogin={true} />
+                            </div>
+                        </Route>
+                        <Route exact path="/register">
+                            <div className="page">
+                                <AuthPage isLogin={false} />
                             </div>
                         </Route>
                         <Route path="/test">

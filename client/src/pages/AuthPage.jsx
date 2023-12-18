@@ -3,6 +3,7 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import explore from "../assets/explore.svg";
 import LoginForm from "../Components/loginForm.jsx";
+import RegisterForm from "../Components/registerForm.jsx";
 import "../styles/Auth.css";
 
 function AuthPage(props) {
@@ -24,7 +25,11 @@ function AuthPage(props) {
                 >
                     <Box className="welcome_container">
                         <div className="welcome_content">
-                            <img src={explore} alt="explore" />
+                            <img
+                                src={explore}
+                                style={{ width: "100%" }}
+                                alt="explore"
+                            />
                             <h1>Start your journey here</h1>
                         </div>
                     </Box>
@@ -33,10 +38,10 @@ function AuthPage(props) {
                     item
                     xs={4}
                     style={{
-                        padding: "20px",
+                        padding: "60px",
                     }}
                 >
-                    <LoginForm />
+                    {props.isLogin ? <LoginForm /> : <RegisterForm />}
                 </Grid>
             </Grid>
         </>

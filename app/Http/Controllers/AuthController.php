@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use ReallySimpleJWT\Token;
 
 class AuthController extends Controller
 {
@@ -49,8 +50,13 @@ class AuthController extends Controller
         $user = User::where("email", $email)->first();
         if ($user) {
             if (Hash::check($password, $user->password)) {
+                $appSecret = (string) env("APP_SECRET");
+                $expireAt = time() + 3600;
+                $issuer = env("APP_URL");
+                $token = Token::create($user->id, $appSecret, $expireAt, $issuer, "HS256");
                 return response()->json([
                     "success" => true,
+                    "token" => $token,
                     "message" => "User login successfull"
                 ]);
             }

@@ -7,6 +7,22 @@ import Grid from "@mui/material/Grid";
 import "../styles/Auth.css";
 
 function LoginForm() {
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        fetch("/api/user/login", {
+            method: "POST",
+            body: formData,
+        })
+            .then((res) => {
+                if (res.ok) {
+                    return res.json();
+                }
+            })
+            .then((data) => {
+                console.log(data);
+            });
+    };
     return (
         <>
             <Box className="form_container">
@@ -14,13 +30,14 @@ function LoginForm() {
                     <img src={smile} alt="smile" />
                     <h2>Welcome User</h2>
                 </Box>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <Grid container>
                         <Grid item xs={12}>
                             <FormControl style={{ width: "100%" }}>
                                 <TextField
                                     type="email"
                                     label="Email"
+                                    name="email"
                                     variant="filled"
                                     className="form-field"
                                 />
@@ -31,6 +48,7 @@ function LoginForm() {
                                 <TextField
                                     type="password"
                                     label="Password"
+                                    name="password"
                                     variant="filled"
                                     className="form-field"
                                 />

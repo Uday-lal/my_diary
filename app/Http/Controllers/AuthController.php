@@ -66,6 +66,15 @@ class AuthController extends Controller
         ], $status = 401);
     }
 
+    public function getLogedInUser(Request $request)
+    {
+        $token = $request->cookie("token");
+        $tokenPayload = Token::getPayload($token);
+        $user_id = $tokenPayload["user_id"];
+        $user = User::findOrFail($user_id);
+        return response()->json($user);
+    }
+
     private function createToken($userId, $days)
     {
         $appSecret = (string) env("APP_SECRET");

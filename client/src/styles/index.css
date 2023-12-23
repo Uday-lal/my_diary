@@ -16,3 +16,12 @@ code {
 button {
     border-radius: 100px !important;
 }
+
+header {
+    width: 100%;
+    padding: 25px 40px;
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

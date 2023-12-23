@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import AuthPage from "./pages/AuthPage.jsx";
+import HomePage from "./pages/HomePage.jsx";
 import { createTheme, ThemeProvider } from "@mui/material";
 import "./styles/App.css";
 
@@ -22,17 +23,17 @@ function App() {
                     <Switch>
                         <Route exact path="/">
                             <div className="page">
+                                <HomePage />
+                            </div>
+                        </Route>
+                        <Route exact path="/login">
+                            <div className="page">
                                 <AuthPage isLogin={true} />
                             </div>
                         </Route>
                         <Route exact path="/register">
                             <div className="page">
                                 <AuthPage isLogin={false} />
-                            </div>
-                        </Route>
-                        <Route path="/test">
-                            <div className="page">
-                                <h1>Test</h1>
                             </div>
                         </Route>
                     </Switch>

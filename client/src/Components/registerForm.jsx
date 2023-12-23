@@ -7,26 +7,6 @@ import Grid from "@mui/material/Grid";
 import "../styles/Auth.css";
 
 function RegisterForm() {
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const formData = new FormData(e.target);
-
-        fetch("/api/user/register", {
-            method: "POST",
-            headers: {
-                "Content-type": "application/x-www-form-urlencoded",
-            },
-            body: formData,
-        })
-            .then((res) => {
-                if (res.ok) {
-                    res.json();
-                }
-            })
-            .then((data) => {
-                console.log(data);
-            });
-    };
     return (
         <>
             <Box className="form_container">
@@ -34,7 +14,7 @@ function RegisterForm() {
                     <img src={smile} alt="smile" />
                     <h2>Welcome User</h2>
                 </Box>
-                <form onSubmit={handleSubmit}>
+                <form action="/api/user/register" method="POST">
                     <Grid container>
                         <Grid item xs={12}>
                             <FormControl style={{ width: "100%" }}>

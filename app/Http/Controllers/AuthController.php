@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Cookie;
 use ReallySimpleJWT\Token;
 
 class AuthController extends Controller
@@ -26,10 +27,9 @@ class AuthController extends Controller
             $user->email = $email;
             $user->password = $password;
             $user->save();
-            return response()->json([
-                "success" => true,
-                "message" => "User successfully created"
-            ]);
+            $token = $this->createToken($user->id, 2);
+            $cookie = Cookie::make("token", $token);
+            return redirect("/")->withCookie($cookie);
         } catch (\Illuminate\Validation\ValidationException $e) {
             return response()->json([
                 "success" => false,
@@ -50,15 +50,9 @@ class AuthController extends Controller
         $user = User::where("email", $email)->first();
         if ($user) {
             if (Hash::check($password, $user->password)) {
-                $appSecret = (string) env("APP_SECRET");
-                $expireAt = time() + 3600;
-                $issuer = env("APP_URL");
-                $token = Token::create($user->id, $appSecret, $expireAt, $issuer, "HS256");
-                return response()->json([
-                    "success" => true,
-                    "token" => $token,
-                    "message" => "User login successfull"
-                ]);
+                $token = $this->createToken($user->id, 2);
+                $cookie = Cookie::make("token", $token);
+                return redirect("/")->withCookie($cookie);
             }
         } else {
             return response()->json([
@@ -70,5 +64,14 @@ class AuthController extends Controller
             "success" => false,
             "message" => "User login failed"
         ], $status = 401);
+    }
+
+    private function createToken($userId, $days)
+    {
+        $appSecret = (string) env("APP_SECRET");
+        $expireAt = time() + 3600 * $days;
+        $issuer = env("APP_URL");
+        $token = Token::create($userId, $appSecret, $expireAt, $issuer, "HS256");
+        return $token;
     }
 }

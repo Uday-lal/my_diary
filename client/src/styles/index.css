@@ -6,6 +6,7 @@ body {
     font-family: "Comfortaa", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow: hidden;
 }
 
 code {
@@ -19,9 +20,7 @@ button {
 
 header {
     width: 100%;
-    padding: 25px 40px;
     background-color: var(--primary-color);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 90% 10%;
 }

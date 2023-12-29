@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import AuthPage from "./pages/AuthPage.jsx";
 import HomePage from "./pages/HomePage.jsx";
+import EditorPage from "./pages/EditiorPage.jsx";
 import { createTheme, ThemeProvider } from "@mui/material";
 import { useEffect, useState } from "react";
 
@@ -43,6 +44,11 @@ function App() {
                         <Route exact path="/">
                             <div className="page">
                                 <HomePage user={user} />
+                            </div>
+                        </Route>
+                        <Route exact path="/editor">
+                            <div className="page">
+                                <EditorPage />
                             </div>
                         </Route>
                         <Route exact path="/login">

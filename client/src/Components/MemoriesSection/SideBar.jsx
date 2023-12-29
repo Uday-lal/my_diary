@@ -7,6 +7,9 @@ import BestMemories from "../BestMemories.jsx";
 import MyDiaries from "../MyDiaries.jsx";
 import Recent from "../Recent.jsx";
 import Trash from "../Trash.jsx";
+import Button from "@mui/material/Button";
+import AddCircleRoundedIcon from "@mui/icons-material/AddCircleRounded";
+
 import "../../styles/MemoriesSection.css";
 
 function SideBar(props) {
@@ -14,6 +17,16 @@ function SideBar(props) {
         <>
             <Box className="side_bar">
                 <Box className="side_bar_container">
+                    <Box id="create_btn">
+                        <Button
+                            variant="contained"
+                            LinkComponent="a"
+                            href="/editor"
+                            startIcon={<AddCircleRoundedIcon />}
+                        >
+                            Create Memories
+                        </Button>
+                    </Box>
                     <Box
                         onClick={() => props.handleClick(<MyDiaries />)}
                         className="side_bar_link"

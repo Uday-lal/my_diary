@@ -47,3 +47,22 @@
 .view_section {
     padding: 20px;
 }
+
+.side_bar_container > #create_btn {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    padding: 10px 0px;
+}
+
+.side_bar_container > #create_btn > button {
+    border-radius: 5px !important;
+    background-color: white !important;
+    color: var(--secondary-color);
+}
+
+.side_bar_container > #create_btn > a {
+    border-radius: 5px !important;
+    background-color: white !important;
+    color: var(--secondary-color);
+}

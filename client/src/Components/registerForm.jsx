@@ -21,6 +21,7 @@ function RegisterForm() {
                                 <TextField
                                     type="text"
                                     label="Name"
+                                    name="userName"
                                     variant="filled"
                                     className="form-field"
                                 />
@@ -31,6 +32,7 @@ function RegisterForm() {
                                 <TextField
                                     type="email"
                                     label="Email"
+                                    name="email"
                                     variant="filled"
                                     className="form-field"
                                 />
@@ -41,6 +43,7 @@ function RegisterForm() {
                                 <TextField
                                     type="password"
                                     label="Password"
+                                    name="password"
                                     variant="filled"
                                     className="form-field"
                                 />

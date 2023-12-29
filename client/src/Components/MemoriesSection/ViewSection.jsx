@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 function ViewSection(props) {
     return (
         <>
-            <Box>{props.currentView}</Box>
+            <Box className="view_section">{props.currentView}</Box>
         </>
     );
 }

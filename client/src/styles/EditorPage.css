@@ -1,0 +1,5 @@
+.editor {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 4% 22% 74%;
+}

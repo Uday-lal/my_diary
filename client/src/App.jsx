@@ -48,7 +48,7 @@ function App() {
                         </Route>
                         <Route exact path="/editor">
                             <div className="page">
-                                <EditorPage />
+                                <EditorPage user={user} />
                             </div>
                         </Route>
                         <Route exact path="/login">

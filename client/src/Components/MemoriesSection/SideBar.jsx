@@ -9,7 +9,6 @@ import Recent from "../Recent.jsx";
 import Trash from "../Trash.jsx";
 import Button from "@mui/material/Button";
 import AddCircleRoundedIcon from "@mui/icons-material/AddCircleRounded";
-
 import "../../styles/MemoriesSection.css";
 
 function SideBar(props) {

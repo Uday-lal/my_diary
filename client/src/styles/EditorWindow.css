@@ -1,6 +1,7 @@
 .editor_window {
     width: 100%;
     background-color: var(--primary-black);
+    position: relative;
 }
 
 .window_page_container {
@@ -10,4 +11,31 @@
     width: 100%;
     height: 100%;
     padding: 40px 0px;
+}
+
+.window_bottom {
+    position: absolute;
+    bottom: 1px;
+    width: 100%;
+}
+
+.bottom_bar {
+    width: 100%;
+    background-color: var(--secondary-black);
+    height: 100px;
+}
+
+.add_page_button {
+    width: 50%;
+    padding: 10px;
+    background-color: var(--secondary-black);
+    color: white;
+    border: none;
+    margin-top: 20px;
+    border-radius: 10px !important;
+    cursor: pointer;
+    font-family: "Comfortaa", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

@@ -7,13 +7,19 @@ function EditorSideBar(props) {
     return (
         <>
             <div className="editor_sidebar">
-                <button>
+                <button
+                    onClick={() => props.handleControllerLayoutChange("font")}
+                >
                     <img src={fontIcon} alt="font-icon" />
                 </button>
-                <button>
+                <button
+                    onClick={() => props.handleControllerLayoutChange("images")}
+                >
                     <img src={imageIcon} alt="img-icon" />
                 </button>
-                <button>
+                <button
+                    onClick={() => props.handleControllerLayoutChange("draw")}
+                >
                     <img src={paletteIcon} alt="palette-icon" />
                 </button>
             </div>

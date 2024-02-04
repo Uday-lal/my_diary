@@ -6,12 +6,22 @@ import EditorWindow from "../Components/EditorSection/EditrorWindow.jsx";
 import "../styles/EditorPage.css";
 
 function EditorPage(props) {
+    const [currentRenderedLayout, setCurrentRenderedLayout] = useState(null);
+
+    const handleControllerLayoutChange = (currentLayout) => {
+        setCurrentRenderedLayout(currentLayout);
+    };
+
     return (
         <>
             <AppNavBar userName={props.user.name} />
             <div className="editor">
-                <EditorSideBar />
-                <EditorController />
+                <EditorSideBar
+                    handleControllerLayoutChange={handleControllerLayoutChange}
+                />
+                <EditorController
+                    currentRenderedLayout={currentRenderedLayout}
+                />
                 <EditorWindow />
             </div>
         </>
